@@ -1,0 +1,11 @@
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+// Use morgan to log every request
+app.use(morgan('dev'));
+app.get('/', (req, res) => {
+  res.send('Morgan logger enabled');
+});
+app.listen(3000, () => {
+  console.log('Third-party middleware example on http://localhost:3000');
+});
