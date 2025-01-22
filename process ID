@@ -1,0 +1,7 @@
+console.log("PID:", process.pid);
+console.log("Node version:", process.version);
+console.log("Command line args:", process.argv);
+// Handle 'exit' event
+process.on('exit', (code) => {
+  console.log(`Process is about to exit with code: ${code}`);
+});
