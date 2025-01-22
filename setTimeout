@@ -1,0 +1,8 @@
+let count = 0;
+const intervalId = setInterval(() => {
+  count++;
+  console.log(`Interval fired ${count} times`);
+  if (count === 3) {
+    clearInterval(intervalId); // Stop after 3 times
+  }
+}, 1000);
