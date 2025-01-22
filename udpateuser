@@ -1,0 +1,30 @@
+const mongoose = require('mongoose');
+const User = require('./userModel'); // Import the User model
+
+// Connect to MongoDB and update user
+(async () => {
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/testDB', { 
+      useNewUrlParser: true, 
+      useUnifiedTopology: true 
+    });
+    console.log('MongoDB connected');
+
+    // Function to update user
+    const updateUser = async (email, newData) => {
+      const updated = await User.findOneAndUpdate(
+        { email },        // filter
+        { $set: newData },// update
+        { new: true }     // return updated doc
+      );
+      console.log('Updated user:', updated || 'No user found');
+    };
+
+    await updateUser('alice@example.com', { age: 29 });
+
+  } catch (error) {
+    console.error('Error:', error.message);
+  } finally {
+    mongoose.connection.close();
+  }
+})();
