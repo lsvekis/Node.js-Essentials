@@ -1,0 +1,10 @@
+function fetchNumber() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const number = 42;
+      // Simulate success
+      resolve(number);
+      // or simulate error: reject(new Error("Something went wrong!"));
+    }, 1000);
+  });
+}
