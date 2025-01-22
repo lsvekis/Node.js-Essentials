@@ -1,0 +1,7 @@
+const fs = require('fs');
+// Synchronous read
+const data = fs.readFileSync('input.txt', 'utf8');
+console.log(data);
+// Synchronous write
+fs.writeFileSync('output.txt', 'Some data');
+console.log('File written successfully');
